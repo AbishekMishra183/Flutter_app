@@ -30,35 +30,49 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:Homepage(),
+      home: HomePage(),
     );
   }
 }
 
-class Homepage extends StatelessWidget{
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar:AppBar(
-      title:Text('My Title'),
-    ),
+      appBar: AppBar(title: Text("Abishek App")),
       body: Center(
-        child: Text(
-          "AWT",
-          style: TextStyle(
-            fontSize: 50,
+        child: Padding(
+
+          padding:  EdgeInsets.all(23.0),
+          child: Column(spacing: 15,
+
+            children: [
+              Text("Login to Continue ", style: TextStyle(fontSize: 20)),
+              TextFormField(
+                decoration: InputDecoration(
+                    hintText: "Email",
+                  border: OutlineInputBorder()
+                ),
+              ),
+              TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+
+                    labelText: "Password",
+                    border: OutlineInputBorder()
+                ),
+              ),
+              ElevatedButton(onPressed: (){
+                print("Hello World");
+              }, child: Text("Login")
+              ),
+            ],
           ),
         ),
       ),
-
     );
-    }
   }
-
-
-
-
-
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
