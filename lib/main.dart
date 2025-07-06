@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomePage(),
+      home: MyStatelessWidget(),
     );
   }
 }
@@ -159,3 +159,58 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+class MyStatelessWidget extends StatefulWidget {
+  const MyStatelessWidget({super.key});
+
+  @override
+  State<MyStatelessWidget> createState() => _MyStatelessWidgetState();
+}
+
+class _MyStatelessWidgetState extends State<MyStatelessWidget> {
+  int count =0;
+  @override
+  void initState() {
+    print("hello 1");
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    print(count);
+    return  Scaffold(
+     appBar : AppBar(),
+      body: Column(
+        children: [
+          Text(count.toString()),
+          ElevatedButton(onPressed: (){
+
+            setState(() {
+              count++;
+            });
+          }, child: Text('Add')),
+        ],
+      )
+
+
+    );
+
+  }
+  @override
+  void dispose() {
+    print("hello 3");
+    super.dispose();
+  }
+}
+
+
+class Test extends StatelessWidget {
+  const Test({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
